@@ -17,6 +17,14 @@ export class GoalComponent implements OnInit {
     new Goal(6,'Plot my world domination plan','Cause I am an evil overlord',new Date(2030,3,14)),
   ];
 
+  //Add new goal using the form
+  addNewGoal(goal){
+    let goalLength = this.goals.length;
+    goal.id = goalLength+1;
+    goal.completeDate = new Date(goal.completeDate)
+    this.goals.push(goal)
+  }
+
   //toggleDetails()function
   toggleDetails(index){
     this.goals[index].showDescription = !this.goals[index].showDescription;
